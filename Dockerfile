@@ -6,8 +6,8 @@ RUN dotnet restore
 
 COPY . ./
 RUN dotnet publish -c Release -o out
-RUN dotnet dev-certs https --clean
-RUN dotnet dev-certs https -t
+#RUN dotnet dev-certs https --clean
+#RUN dotnet dev-certs https -t
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 WORKDIR /app
