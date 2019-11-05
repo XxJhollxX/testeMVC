@@ -11,4 +11,6 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 WORKDIR /app
 COPY --from=build-env /app/out .
 EXPOSE 5000 5001
+RUN dotnet dev-certs https --clean
+RUN dotnet dev-certs https -t
 ENTRYPOINT ["dotnet", "testeMVC.dll"]
